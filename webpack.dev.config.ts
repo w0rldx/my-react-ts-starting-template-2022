@@ -1,12 +1,12 @@
-import path from 'path'
-import { Configuration as WebpackConfiguration, HotModuleReplacementPlugin } from 'webpack'
-import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-import ESLintPlugin from 'eslint-webpack-plugin'
+import ESLintPlugin from 'eslint-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from 'path';
+import { Configuration as WebpackConfiguration, HotModuleReplacementPlugin } from 'webpack';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
 interface WebPackDevConfiguration extends WebpackConfiguration {
-  devServer?: WebpackDevServerConfiguration
+  devServer?: WebpackDevServerConfiguration;
 }
 
 const config: WebPackDevConfiguration = {
@@ -54,13 +54,11 @@ const config: WebPackDevConfiguration = {
   ],
   devtool: 'inline-source-map',
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'build'),
-    },
+    static: path.join(__dirname, 'build'),
     historyApiFallback: true,
     port: 3000,
     open: true,
   },
-}
+};
 
-export default config
+export default config;
