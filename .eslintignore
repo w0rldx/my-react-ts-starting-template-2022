@@ -1,6 +1,10 @@
 build/*
 public/*
+dist/*
 docs/*
 templates/*
 src/react-app-env.d.ts
 src/serviceWorker.ts
+src/assets/*
+src/index.html
+*/**/*.scss

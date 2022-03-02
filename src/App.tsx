@@ -1,7 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import './App.scss';
+import Home from './pages/Home';
 
-const App = () => {
-  return <h1>Test</h1>;
-};
-
-export default App;
+ReactDOM.render(
+  <React.StrictMode>
+    <Home />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
