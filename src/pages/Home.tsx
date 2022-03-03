@@ -3,21 +3,24 @@ import logo from '../assets/logo.svg';
 import './Home.scss';
 
 function Home() {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>Hello Vite + React!</p>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p className="header">
+          🚀 Vite + React + Typescript 🤘 & <br />
+          Eslint 🔥+ Prettier
+        </p>
+
+        <div className="body">
+          <button onClick={() => setCount((sum) => sum + 1)}>🪂 Click me : {count}</button>
+
+          <p> Don&apos;t forgot to install Eslint and Prettier in Your Vscode.</p>
+
           <p>
-            <button type="button" onClick={() => setCount((num) => count + 1)}>
-              count is: {count}
-            </button>
-          </p>
-          <p>
-            Edit <code>App.tsx</code> and save to test HMR updates.
+            Mess up the code in <code>App.tsx </code> and save the file.
           </p>
           <p>
             <a
@@ -38,9 +41,9 @@ function Home() {
               Vite Docs
             </a>
           </p>
-        </header>
-      </div>
-    </>
+        </div>
+      </header>
+    </div>
   );
 }
 

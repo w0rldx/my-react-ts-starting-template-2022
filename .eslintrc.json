@@ -1,30 +1,57 @@
 {
-  "plugins": ["prettier", "@typescript-eslint", "react-hooks"],
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "airbnb-typescript",
-    "react-app",
-    "prettier"
-  ],
+  "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": ["./tsconfig.json"],
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "settings": {
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
-      }
-    },
     "react": {
       "pragma": "React",
       "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      },
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   },
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb-typescript",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier", "react-hooks", "@typescript-eslint"],
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/accessible-emoji": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
     "object-curly-spacing": ["warn", "always"],
     "no-unused-vars": [
       "warn",

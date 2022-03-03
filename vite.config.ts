@@ -1,15 +1,22 @@
 import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-const config = {
-  root: 'src',
+export default defineConfig({
+  root: './src',
   assetsInclude: ['./src/assets/**/*'],
-  plugins: [react(), tsconfigPaths(), eslintPlugin()],
+
+  plugins: [
+    {
+      ...eslintPlugin({ cache: false }),
+      enforce: 'pre',
+    },
+    react(),
+    tsconfigPaths(),
+  ],
   build: {
     emptyOutDir: true,
     outDir: '../dist',
   },
-};
-
-export default config;
+});
